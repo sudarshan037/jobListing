@@ -46,6 +46,7 @@ export class SearchBarComponent implements OnInit {
   };
 
   setCurrentJob(job: Job) {
+    console.log("in setCurrentJob", job);
     this.jobServiceService.changeSelectedJob(job);
     this.showingJob = true;
   }

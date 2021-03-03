@@ -10,7 +10,8 @@ import { Job } from "./Job";
 @Injectable()
 export class JobServiceService {
   private selectedJob$: Subject<Job> = new Subject<Job>();
-  apiUrl = "https://www.themuse.com/api/public/jobs?page=1&company=";
+  // apiUrl = "https://www.themuse.com/api/public/jobs?page=1&company=";
+  apiUrl = "https://www.themuse.com/api/public/jobs?page=1&category=";
   // apiUrl = "https://remotive.io/api/remote-jobs?category=";
   constructor(private http: HttpClient){}
   

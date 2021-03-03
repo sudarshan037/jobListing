@@ -10,7 +10,7 @@
     </div>
   </form>
   <div *ngIf="!showingJob" class="row">
-    <app-job-search-item *ngFor="let job of searchResults; let i = index" [index]="i" (click)="setCurrentjob(job)"
+    <app-job-search-item *ngFor="let job of searchResults; let i = index" [index]="i" (click)="setCurrentJob(job)"
       [job]="job"></app-job-search-item>
   </div>
   <h3 *ngIf="!fetching && searchResults.length === 0 && search.length > 0" [ngStyle]="{'text-align': 'center'}">No
