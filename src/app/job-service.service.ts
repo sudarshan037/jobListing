@@ -11,6 +11,7 @@ import { Job } from "./Job";
 export class JobServiceService {
   private selectedJob$: Subject<Job> = new Subject<Job>();
   apiUrl = "https://www.themuse.com/api/public/jobs?page=1&company=";
+  // apiUrl = "https://remotive.io/api/remote-jobs?category=";
   constructor(private http: HttpClient){}
   
   get currentJob() {

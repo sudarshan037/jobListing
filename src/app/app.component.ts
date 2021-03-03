@@ -8,7 +8,7 @@ import { JobServiceService } from "./job-service.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TheMuse';
+  title = 'Job Listing';
   currentJob?: Job = null;
   
   constructor(private jobServiceService: JobServiceService) {

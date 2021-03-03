@@ -11,7 +11,7 @@ import { Subject } from "rxjs/Subject";
   styleUrls: ['./search-bar.component.css']
 })
 export class SearchBarComponent implements OnInit {
-  searchResults: Job[];
+  searchResults: Job[] = [];
   search = "";
   search$: Subject<String> = new Subject<String>();
   fetching = false;
@@ -36,6 +36,7 @@ export class SearchBarComponent implements OnInit {
       this.jobServiceService.searchJob(query).subscribe(results => {
         this.fetching = true;
         this.searchResults = results["results"];
+        // this.searchResults = results["jobs"];
         console.log("searchResults: ", this.searchResults);
       });
     } else {
