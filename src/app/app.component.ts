@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Job } from "./Job";
-import { JobServiceService } from "./job-service.service";
+import { AuthenticationService, TOKEN_NAME } from './authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +7,13 @@ import { JobServiceService } from "./job-service.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Job Listing';
-  currentJob?: Job = null;
-  
-  constructor(private jobServiceService: JobServiceService) {
-    jobServiceService.currentJob.subscribe(job => {
-      this.currentJob = job;
-    });
+
+
+  constructor(private authService: AuthenticationService) {
+    this.authService.deleteToken
+    console.log("token deleted");
+    console.log(localStorage.getItem(TOKEN_NAME));
   }
 
-  startNewSearch = () => {
-    this.jobServiceService.changeSelectedJob(null);
-  };
+
 }
