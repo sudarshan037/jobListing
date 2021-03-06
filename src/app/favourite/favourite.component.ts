@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FavouriteService } from '../favourite.service';
-import { FavouriteJob, Job } from '../Job';
+import { FavouriteJob, Job, SearchResult } from '../Job';
 
 const headers = new HttpHeaders()
-    .set('Access-Control-Allow-Origin', '*')
+  .set('Access-Control-Allow-Origin', '*')
 
 
 @Component({
@@ -14,29 +14,49 @@ const headers = new HttpHeaders()
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
+  @Input() index: number;
   userId = localStorage.getItem('userId');
   jobs: any;
-  url = "localhost:8080/favorites/api/v1/"
-  constructor(private http: HttpClient) { }
+  searchResults: Job[] = [];
+  url = "localhost:8080/favorites/api/v1/";
+  museApi = "https://www.themuse.com/api/public/jobs/";
+  constructor(private http: HttpClient) {
+    this.showFavorite();
+    // this.searchFavorite(this.jobs);
+  }
 
   ngOnInit(): void {
-    //this.saveFavorite();
-    this.showFavorite();
   }
 
-  showFavorite(): void{
+  showFavorite(): void {
     this.http.get(`http://localhost:8081/favorites/api/v1/users/${this.userId}`)
-    .subscribe((data) => {
-    this.jobs = data, console.log("showFavorite()", data)})
+      .subscribe((data) => {
+        for (let key in data) {
+          this.searchFavorite(data[key])
+        }
+      });
   }
 
-  // saveFavorite(): boolean{
-  //   this.http.post("http://localhost:8081/favorites/api/v1/jobs/save",
-  //   {
-  //     "jobid": "blah test",
-  //     "userid": "gabbar101"
-  //   })
-  //   .subscribe((data) => console.log(data))
-  //   return true;
-  // }
+  searchFavorite(jobId: string){
+    this.http.get(this.museApi+jobId)
+    .subscribe((data) => {
+      this.searchResults.push(data);
+      // console.log("searchFavourite(): ", data);
+      console.log("checkSearchResult: ", this.searchResults);
+    });
+  }
+
+  backdropStyle = () => {
+    //console.log("Job: ", this.job);
+    return {
+      background: `linear-gradient(180deg, rgba(0,0,0,.7), transparent), url(http://image.tmdb.org/t/p/w300/jLslJietfQJEgOvQHk4fRYFCnTS.jpg)`,
+      "background-size": "cover"
+    };
+  };
+
+  animationDelay = () => ({
+    "animation-delay": `${this.index * 0.15}s`
+  });
 }
+
+// this.jobs = data, console.log("showFavorite()", data)

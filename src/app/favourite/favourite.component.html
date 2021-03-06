@@ -1,11 +1,16 @@
-<div *ngFor="let job of jobs">{{job}}
+<div *ngFor="let job of searchResults">
     <div class="col s12 m4 l4 job" [ngStyle]="animationDelay()">
-        <div class="card blue-grey darken-1 pointer" style="height: 15rem" [ngStyle]="backdropStyle()">
+        <div class="card blue-grey darken-1 pointer" style="height: 15rem; width: 20rem" [ngStyle]="backdropStyle()">
             <div class="card-content">
                 <span class="card-company">{{job['company']['name']}}</span>
-                <span class="card-title">{{job['name']}}</span>
+                <span class="card-title" innerHtml="{{job['name']}}"></span>
                 <span class="card-loaction">{{job['locations'][0]['name']}}</span>
-                <div class="job-year">{{job['publication_date'] | date}}</div>
+                <span class="job-year">{{job['publication_date'] | date}}</span>
+                <div class="row">
+                    <button type="button" (click)="animationDelay()" routerLink="/reload" class="del-btn">Delete</button>
+                    
+                    <br>
+                  </div>
             </div>
         </div>
     </div>
