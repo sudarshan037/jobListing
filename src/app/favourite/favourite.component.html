@@ -1,10 +1,12 @@
-<button (click)="getJobs()">Click</button>
-<p>{{jobs}}</p>
-<!-- <li *ngFor="let job of jobs">
-    <ul>
-
-       {{job.userid}}
-       <br>
-       {{job.jobid}}
-    </ul>
-</li> -->
+<div *ngFor="let job of jobs">{{job}}
+    <div class="col s12 m4 l4 job" [ngStyle]="animationDelay()">
+        <div class="card blue-grey darken-1 pointer" style="height: 15rem" [ngStyle]="backdropStyle()">
+            <div class="card-content">
+                <span class="card-company">{{job['company']['name']}}</span>
+                <span class="card-title">{{job['name']}}</span>
+                <span class="card-loaction">{{job['locations'][0]['name']}}</span>
+                <div class="job-year">{{job['publication_date'] | date}}</div>
+            </div>
+        </div>
+    </div>
+</div>

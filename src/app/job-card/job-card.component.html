@@ -13,6 +13,7 @@
     <li>Category: {{job['categories'][0]['name']}}</li>
     <li>Level: {{job['levels'][0]['name']}}</li>
     <li><a href="{{job['refs']['landing_page']}}">more</a></li>
-    <li><button *ngIf="loggedIn" (click)="addToFavourite()">blah</button></li>
+    <li><button *ngIf="loggedIn" (click)="saveFavorite()">save</button></li>
+    <li><button *ngIf="loggedIn" (click)="deleteFavorite()">delete</button></li>
   </ul>
 </div>

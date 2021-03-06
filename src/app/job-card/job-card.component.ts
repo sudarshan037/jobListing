@@ -12,26 +12,44 @@ import { Job } from "../Job";
 export class JobCardComponent implements OnInit {
   @Input() job: Job;
   userId = localStorage.getItem('userId');
-  jobId = "blah blah blah"
   url = "localhost:8080/favorites/api/v1"
-  public loggedIn=false;
+  public loggedIn = false;
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
-
   ngOnInit(): void {
     this.loggedIn = this.authService.isLoggedIn();
   }
 
-  addToFavourite(){
+  saveFavorite(): boolean {
+    this.http.post("http://localhost:8081/favorites/api/v1/jobs/save",
+      {
+        "jobid": this.job['id'],
+        "userid": this.userId
+      })
+      .subscribe((data) => console.log("saved:", data))
+    return true;
+  }
+
+  deleteFavorite(): boolean {
+    this.http.post("http://localhost:8081/favorites/api/v1/jobs/delete",
+      {
+        "jobid": this.job['id'],
+        "userid": this.userId
+      })
+      .subscribe((data) => console.log("deleted: ", data))
+    return true;
+  }
+
+  addToFavourite() {
     this.http.post(`${this.url}/jobs/save`, JSON.stringify({
       userid: this.userId,
-      jobid: this.jobId
+      jobid: ""
     })).subscribe(data => {
       this.job = data;
     });
     console.log("job", this.job);
     console.log("added", JSON.stringify({
       userid: this.userId,
-      jobid: this.jobId
+      jobid: ""
     }));
   }
 }

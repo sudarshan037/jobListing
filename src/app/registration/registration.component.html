@@ -32,13 +32,15 @@
         <input type="password" [(ngModel)]="newUser.password" class="form-control" id="password" name="password">
 
       </div>
+      <div>
+        <label class="form-label" for="customFile">User Profile Image</label>
+        <input type="file" (change)="onFileSelected($event)" value="upload" class="form-control" id="customFile" />
+      </div>
       <br>
       <div class="row">
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" (click)="onUpload()" class="btn btn-primary">Register</button>
         &nbsp; &nbsp; &nbsp;
         <br>
-        <button class="logIn-button" mat-raised-button [routerLink]="['/login']" color="accent">Already have an account?
-          Login</button>
       </div>
     </div>
   </form>
