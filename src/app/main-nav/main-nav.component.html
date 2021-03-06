@@ -1,8 +1,17 @@
-<mat-toolbar color="primary">
-    <span><a mat-icon-button routerLink="/" >Job Portal</a></span>
+<mat-toolbar>
+    <mat-icon>next_week</mat-icon>
+    <span><a mat-icon-button routerLink="/">Job Portal</a></span>
     <span class="example-spacer"></span>
-    <button *ngIf="!loggedIn" mat-raised-button color="accent" routerLink="/registration" >Register</button>
-    <button *ngIf="!loggedIn" mat-raised-button color="accent" routerLink="/login" >Login</button>
+    <button *ngIf="!loggedIn" mat-raised-button color="accent" routerLink="/registration">Register</button>
+    <button *ngIf="!loggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
     <span *ngIf="loggedIn" mat-icon-button>{{name}}</span>
-    <button *ngIf="loggedIn" (click)="logoutUser()" mat-raised-button color="accent">Logout</button>
-    </mat-toolbar>
+    <button *ngIf="loggedIn" routerLink="/favourites" mat-raised-button color="accent">
+        <mat-icon>favorite_border</mat-icon>
+    </button>
+    <button *ngIf="loggedIn" routerLink="/protected" mat-raised-button color="accent">
+        <mat-icon>search</mat-icon>
+    </button>
+    <button *ngIf="loggedIn" (click)="logoutUser()" mat-raised-button color="Basic">
+        <mat-icon>exit_to_app</mat-icon> Logout
+    </button>
+</mat-toolbar>

@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import  { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -19,6 +20,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FavouriteComponent } from './favourite/favourite.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AppRoutingModule } from './app-routing.module';
     LoginComponent,
     MainNavComponent,
     RegistrationComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { AppRoutingModule } from './app-routing.module';
     MaterializeModule,
     MatToolbarModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
 
   ],
   providers: [JobServiceService],

@@ -1,12 +1,18 @@
 <div class="col m7 s12">
-    <h3 class="fade-in-right">{{job['name']}}</h3>
-    <div class="row">
-      <div class="col fade-in-right slower">
-      </div>
-    </div>
-    <div class="row">
-      <p class="flow-text col s12 fade-in-left slow">
-        {{job['name']}}
-      </p>
+  <h3 class="fade-in-right" innerHtml="{{job['name']}}"></h3>
+  <div class="row">
+    <div class="col fade-in-right slower" innerHtml="{{job['contents']}}">
     </div>
   </div>
+</div>
+<div class="col m5">
+  <ul>
+    <li>Date: {{job['publication_date'] | date}}</li>
+    <li>Company: {{job['company']['name']}}</li>
+    <li>Location: {{job['locations'][0]['name']}}</li>
+    <li>Category: {{job['categories'][0]['name']}}</li>
+    <li>Level: {{job['levels'][0]['name']}}</li>
+    <li><a href="{{job['refs']['landing_page']}}">more</a></li>
+    <li><button *ngIf="loggedIn" (click)="addToFavourite()">blah</button></li>
+  </ul>
+</div>

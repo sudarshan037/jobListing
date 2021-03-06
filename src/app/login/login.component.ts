@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       if(data['token']) {
         this.authService.setToken(data['token']);
         this.authService.setName(data['name']);
+        this.authService.setUserId(data['userId']);
         console.log(localStorage.getItem(TOKEN_NAME));
         
         

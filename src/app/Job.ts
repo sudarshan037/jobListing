@@ -3,6 +3,14 @@ export interface Job {
   type?: string | null;
 }
 
+export class FavouriteJob{
+  jobid: string;
+
+  constructor(obj?: any){
+    this.jobid = obj && obj.jobid || null;
+  }
+}
+
 export class User {
   userId:string;
   password:string;
