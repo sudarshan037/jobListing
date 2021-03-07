@@ -14,6 +14,7 @@ const headers = new HttpHeaders()
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
+  @Input() job: Job;
   @Input() index: number;
   userId = localStorage.getItem('userId');
   jobs: any;
@@ -49,7 +50,7 @@ export class FavouriteComponent implements OnInit {
   backdropStyle = () => {
     //console.log("Job: ", this.job);
     return {
-      background: `linear-gradient(180deg, rgba(0,0,0,.7), transparent), url(http://image.tmdb.org/t/p/w300/jLslJietfQJEgOvQHk4fRYFCnTS.jpg)`,
+      background: `linear-gradient(180deg, rgba(0,0,0,.7), transparent), url(https://i.stack.imgur.com/XriZj.png)`,
       "background-size": "cover"
     };
   };
@@ -57,6 +58,17 @@ export class FavouriteComponent implements OnInit {
   animationDelay = () => ({
     "animation-delay": `${this.index * 0.15}s`
   });
+
+  deleteFavorite(id: string): boolean {
+    this.http.post("http://localhost:8081/favorites/api/v1/jobs/delete",
+      {
+        "jobid": id,
+        "userid": this.userId
+      })
+      .subscribe((data) => console.log("deleted: ", data))
+      window.location.href="/favourites";
+    return true;
+  }
 }
 
 // this.jobs = data, console.log("showFavorite()", data)

@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { JobCardComponent } from './job-card/job-card.component';
+import { JobSearchItemComponent } from './job-search-item/job-search-item.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { RegistrationComponent } from './registration/registration.component';
 
@@ -20,8 +22,17 @@ const routes: Routes = [
     component: FavouriteComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'protected/details', component: JobCardComponent }
+  {
+    path: 'details',
+    component: JobSearchItemComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

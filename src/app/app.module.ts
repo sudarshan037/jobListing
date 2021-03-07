@@ -8,6 +8,7 @@ import  { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,6 +22,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ProtectedComponent } from './protected/protected.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { DetailsComponent } from './details/details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { FavouriteComponent } from './favourite/favourite.component';
     MainNavComponent,
     RegistrationComponent,
     ProtectedComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    DetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { FavouriteComponent } from './favourite/favourite.component';
     MatToolbarModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatSlideToggleModule
 
   ],
   providers: [JobServiceService],

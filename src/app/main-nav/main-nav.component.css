@@ -7,5 +7,14 @@ button{
     margin-left: 20px;
     color: black;
 }
+a{
+    font-family: Fantasy;
+    font-size: large;
+    margin-left: 5px;
+}
+
+.name{
+    color: whitesmoke;
+}
 
   

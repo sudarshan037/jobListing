@@ -12,11 +12,10 @@ export class JobSearchItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
   backdropStyle = () => {
     //console.log("Job: ", this.job);
     return {
-      background: `linear-gradient(180deg, rgba(0,0,0,.7), transparent), url(http://image.tmdb.org/t/p/w300/jLslJietfQJEgOvQHk4fRYFCnTS.jpg)`,
+      background: `linear-gradient(180deg, rgba(0,0,0,.7), transparent), url(https://i.stack.imgur.com/XriZj.png)`,
       "background-size": "cover"
     };
   };

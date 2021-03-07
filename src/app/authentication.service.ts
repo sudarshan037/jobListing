@@ -48,10 +48,16 @@ export class AuthenticationService {
     localStorage.removeItem(TOKEN_NAME);
     return true;
   }
-  setName(name:string) {
-    return localStorage.setItem("name", name);
+  setFname(Fname:string) {
+    return localStorage.setItem("Fname", Fname);
+  }
+  setLname(Lname:string) {
+    return localStorage.setItem("Lname", Lname);
   }
   setUserId(userId:string) {
     return localStorage.setItem("userId", userId);
+  }
+  setImageUrl(imageUrl:string) {
+    return localStorage.setItem("imageUrl", imageUrl);
   }
 }

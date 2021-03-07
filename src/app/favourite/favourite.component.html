@@ -6,8 +6,10 @@
                 <span class="card-title" innerHtml="{{job['name']}}"></span>
                 <span class="card-loaction">{{job['locations'][0]['name']}}</span>
                 <span class="job-year">{{job['publication_date'] | date}}</span>
+                <spam><a href="{{job['refs']['landing_page']}}">Click for more details</a>
+                </spam>
                 <div class="row">
-                    <button type="button" (click)="animationDelay()" routerLink="/reload" class="del-btn">Delete</button>
+                    <button mat-raised-button color="accent" type="button" (click)="deleteFavorite(job['id'])" class="del-btn">Delete</button>
                     
                     <br>
                   </div>

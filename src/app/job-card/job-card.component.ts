@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { AuthenticationService } from '../authentication.service';
@@ -14,9 +14,19 @@ export class JobCardComponent implements OnInit {
   userId = localStorage.getItem('userId');
   url = "localhost:8080/favorites/api/v1"
   public loggedIn = false;
-  constructor(private http: HttpClient, private authService: AuthenticationService) { }
+  public checked: boolean;
+
+  constructor(private http: HttpClient, private authService: AuthenticationService) {
+    this.checked = false;
+  }
   ngOnInit(): void {
     this.loggedIn = this.authService.isLoggedIn();
+    this.http.post("http://localhost:8081/favorites/api/v1/pair/exists",
+      {
+        "jobid": this.job['id'],
+        "userid": this.userId
+      })
+      .subscribe((data: boolean) => this.checked=data);
   }
 
   saveFavorite(): boolean {
@@ -51,5 +61,10 @@ export class JobCardComponent implements OnInit {
       userid: this.userId,
       jobid: ""
     }));
+  }
+
+  color = 'Basic';
+  changed() {
+    console.log(this.checked)
   }
 }

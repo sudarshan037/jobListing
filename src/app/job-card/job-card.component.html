@@ -15,5 +15,13 @@
     <li><a href="{{job['refs']['landing_page']}}">more</a></li>
     <li><button *ngIf="loggedIn" (click)="saveFavorite()">save</button></li>
     <li><button *ngIf="loggedIn" (click)="deleteFavorite()">delete</button></li>
+    <li>
+      <div *ngIf="!checked && loggedIn"><button [routerLink]="protected" (click)="saveFavorite()">Favourite</button></div>
+      <div *ngIf="checked && loggedIn"><button [routerLink]="protected" (click)="deleteFavorite()">Unfavourite</button></div>
+      <!-- <mat-slide-toggle [(ngModel)]="checked" (click)="changed()"  color="Basic">{{checked}}</mat-slide-toggle>
+      <mat-slide-toggle class="example-margin" [color]="color" (change)="changed()">
+        Slide me! {{checked}}
+      </mat-slide-toggle> -->
+    </li>
   </ul>
 </div>
