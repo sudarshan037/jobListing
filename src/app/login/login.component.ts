@@ -9,37 +9,30 @@ import { User } from '../Job';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user:User = new User();
+  user: User = new User();
   constructor(private authService: AuthenticationService, private router: Router) { }
   ngOnInit(): void {
   }
 
-  loginUser(){
+  loginUser() {
     console.log("Login user", this.user);
     console.log(localStorage.getItem(TOKEN_NAME));
 
     this.authService.loginUser(this.user).subscribe(data => {
       console.log("Login successful");
-      if(data['token']) {
+      if (data['token']) {
         this.authService.setToken(data['token']);
         this.authService.setFname(data['Fname']);
         this.authService.setLname(data['Lname']);
         this.authService.setUserId(data['userId']);
         console.log(localStorage.getItem(TOKEN_NAME));
-        
-        
-      //  this.router.navigate(['/players/search']);
-      //this.router.navigate(['/protected']);
-      window.location.href="/protected";
+        window.location.href = "/protected";
       }
-      
+
     },
-    error => {
-      alert("wrong credential");
-    }
+      error => {
+        alert("wrong credential");
+      }
     );
-  }
-  goToRegistration(){
-    this.router.navigate(['/registration']);
   }
 }

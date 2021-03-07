@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { DetailsComponent } from './details/details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
     ProtectedComponent,
     FavouriteComponent,
     DetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

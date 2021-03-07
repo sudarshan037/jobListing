@@ -21,5 +21,5 @@ export class MainNavComponent implements OnInit {
     location.reload();
   }
 
-  name = localStorage.getItem('name');
+  name = localStorage.getItem('Fname');
 }

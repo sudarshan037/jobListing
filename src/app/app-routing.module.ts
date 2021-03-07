@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { HomeComponent } from './home/home.component';
 import { JobCardComponent } from './job-card/job-card.component';
 import { JobSearchItemComponent } from './job-search-item/job-search-item.component';
 import { LoginComponent } from './login/login.component';
@@ -10,7 +11,7 @@ import { ProtectedComponent } from './protected/protected.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'protected',
