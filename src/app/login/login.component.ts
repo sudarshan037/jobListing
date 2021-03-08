@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService, TOKEN_NAME } from '../authentication.service';
-import { User } from '../Job';
+import { User } from '../User.model';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         this.authService.setLname(data['Lname']);
         this.authService.setUserId(data['userId']);
         console.log(localStorage.getItem(TOKEN_NAME));
-        window.location.href = "/protected";
+        window.location.href = "/search";
       }
 
     },

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
-import { User } from '../Job';
 
 @Component({
   selector: 'app-main-nav',
@@ -11,7 +10,7 @@ export class MainNavComponent implements OnInit {
   public loggedIn=false;
   constructor(private authService:AuthenticationService) { }
 
-    user:User;
+    // user: any;
   ngOnInit(): void {
     this.loggedIn = this.authService.isLoggedIn();
   }

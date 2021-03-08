@@ -1,8 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FavouriteService } from '../favourite.service';
-import { FavouriteJob, Job, SearchResult } from '../Job';
 
 const headers = new HttpHeaders()
   .set('Access-Control-Allow-Origin', '*')
@@ -14,16 +11,15 @@ const headers = new HttpHeaders()
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  @Input() job: Job;
+  @Input() job: any;
   @Input() index: number;
   userId = localStorage.getItem('userId');
   jobs: any;
-  searchResults: Job[] = [];
+  searchResults: any[] = [];
   url = "localhost:8080/favorites/api/v1/";
   museApi = "https://www.themuse.com/api/public/jobs/";
   constructor(private http: HttpClient) {
     this.showFavorite();
-    // this.searchFavorite(this.jobs);
   }
 
   ngOnInit(): void {
@@ -48,7 +44,6 @@ export class FavouriteComponent implements OnInit {
   }
 
   backdropStyle = () => {
-    //console.log("Job: ", this.job);
     return {
       background: `linear-gradient(180deg, rgba(0,0,0,.7), transparent), url(https://i.stack.imgur.com/XriZj.png)`,
       "background-size": "cover"
@@ -70,5 +65,3 @@ export class FavouriteComponent implements OnInit {
     return true;
   }
 }
-
-// this.jobs = data, console.log("showFavorite()", data)

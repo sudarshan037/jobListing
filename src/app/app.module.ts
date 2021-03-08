@@ -12,35 +12,32 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
-import { JobCardComponent } from './job-card/job-card.component';
-import { JobSearchItemComponent } from './job-search-item/job-search-item.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { JobServiceService } from './job-service.service';
 import { LoginComponent } from './login/login.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { ProtectedComponent } from './protected/protected.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { DetailsComponent } from './details/details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { CardComponent } from './card/card.component';
+import { SearchComponent } from './search/search.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBarComponent,
-    JobCardComponent,
     FooterComponent,
-    JobSearchItemComponent,
     LoginComponent,
     MainNavComponent,
     RegistrationComponent,
-    ProtectedComponent,
     FavouriteComponent,
     DetailsComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    CardComponent,
+    SearchComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +52,7 @@ import { HomeComponent } from './home/home.component';
     MatSlideToggleModule
 
   ],
-  providers: [JobServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

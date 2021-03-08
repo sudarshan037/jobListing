@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/';
 // import * as jwt_decode from 'jwt-decode';
-import { User } from './Job';
+import { User } from './User.model';
 
 export const TOKEN_NAME:string = "jwt_token";
 

@@ -1,17 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Job } from "../Job";
 
 @Component({
-  selector: 'app-job-search-item',
-  templateUrl: './job-search-item.component.html',
-  styleUrls: ['./job-search-item.component.css']
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class JobSearchItemComponent implements OnInit {
-  @Input() job: Job = {};
+export class CardComponent{
+  @Input() job: any;
   @Input() index: number;
-  constructor() {}
 
-  ngOnInit() {}
   backdropStyle = () => {
     //console.log("Job: ", this.job);
     return {
